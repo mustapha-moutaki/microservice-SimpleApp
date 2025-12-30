@@ -1,0 +1,54 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/springboot # katgol l service dyalek hi servie any request jani mn had endpoint handli jwt rah trusted source
+
+keycloak:
+  realm:
+    -springboot
+  auth-server-url: http://locahost:8080
+  resource: springboot-client
+  credentials.secret: kCclDgzBVicNb9r1fRXbB6h2SC9zNjOx
+  bearer-only: true
+  security-constraints:
+    - authRoles:
+        - user
+      securityCollections:
+        - patterns:
+            - /departments/**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
