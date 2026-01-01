@@ -1,19 +1,19 @@
-server:
-  port: 8081
+  server:
+    port: 8081
 
-spring:
-  application:
-    name: employee-service
-  datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: password
-  h2:
-    console:
-      enabled: true
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8080/realms/springboot
+  spring:
+    application:
+      name: employee-service
+    datasource:
+      url: jdbc:h2:mem:testdb
+      driver-class-name: org.h2.Driver
+      username: sa
+      password: password
+    h2:
+      console:
+        enabled: true
+    security:
+      oauth2:
+        resourceserver:
+          jwt:
+            issuer-uri: http://localhost:8080/realms/springboot
